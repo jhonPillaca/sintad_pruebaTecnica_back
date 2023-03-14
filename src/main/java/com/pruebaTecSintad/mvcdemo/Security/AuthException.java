@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class AuthException implements AuthenticationEntryPoint {
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException arg2 ) throws IOException, ServletException {
 
         final Map<String, Object> mapException = new HashMap<>();
 
@@ -23,6 +23,9 @@ public class AuthException implements AuthenticationEntryPoint {
         mapException.put("mensaje", "No autorizado, debe iniciar sesion");
         mapException.put("exception", "Not Authorized");
         mapException.put("path", request.getServletPath());
+        mapException.put("status", response.getStatus());
+        mapException.put("parameters", request.getParameterNames());
+
         mapException.put("timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-mm-dd")));
 
         response.setContentType("application/json");

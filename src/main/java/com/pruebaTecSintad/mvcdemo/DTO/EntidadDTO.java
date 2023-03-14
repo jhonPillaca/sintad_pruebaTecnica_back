@@ -14,7 +14,7 @@ public class EntidadDTO {
     private Integer id_entidad;
 
     @NotNull
-    private TipoDocumentDTO tipoDocument;
+    private TipoDocumentDTO tipoDocumento;
 
     @NotNull
     private String nro_documento;
@@ -26,7 +26,7 @@ public class EntidadDTO {
     private String nombre_comercial;
 
     @NotNull
-    private TipoContribuyentDTO tipoContribuyent;
+    private TipoContribuyentDTO tipoContribuyente;
 
     @NotNull
     private String direccion;

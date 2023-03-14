@@ -25,7 +25,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
-
     @Value("${security.signing-key}")
     private String signingKey;
 
@@ -90,5 +89,4 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
         defaultTokenServices.setReuseRefreshToken(false);
         return defaultTokenServices;
     }
-
 }

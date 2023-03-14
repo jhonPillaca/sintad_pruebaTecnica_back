@@ -25,8 +25,8 @@ public class Entidad {
     @OneToOne
     @JoinColumn(name = "id_tipo_documento",
             nullable = false,
-            foreignKey = @ForeignKey(name = "tb_entidad_ibfk_2"))
-    private TipoDocment tipo_documento;
+            foreignKey = @ForeignKey(name = "tb_entidad_ibfk_3"))
+    private TipoDocumento tipo_documento;
 
     @Column(nullable = false, length = 25)
     private String nro_documento;
@@ -41,7 +41,7 @@ public class Entidad {
     @OneToOne
     @JoinColumn(name = "id_tipo_contribuyente",
             nullable = false,
-            foreignKey = @ForeignKey(name = "tb_entidad_ibfk_1"))
+            foreignKey = @ForeignKey(name = "tb_entidad_ibfk_2"))
     private TipoContribuyente tipo_contribuyente;
 
     @Column(nullable = false, length = 250)

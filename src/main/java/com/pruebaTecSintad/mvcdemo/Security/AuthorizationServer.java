@@ -52,9 +52,12 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder bcrypt;
 
+
     @Override
     public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
         configurer.inMemory().withClient(clientId).secret(bcrypt.encode(clientSecret)).authorizedGrantTypes(grantType, "refresh_token")
+        //configurer.inMemory().withClient("sintadapp").secret(bcrypt.encode("12345")).authorizedGrantTypes("password", "refresh_token")
+
                 .scopes(scopeRead, scopeWrite).resourceIds(resourceIds).accessTokenValiditySeconds(2000)
                 .refreshTokenValiditySeconds(0);
     }

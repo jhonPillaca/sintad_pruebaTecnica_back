@@ -1,8 +1,7 @@
 package com.pruebaTecSintad.mvcdemo.Services;
 
-import com.pruebaTecSintad.mvcdemo.Model.Entidad;
-import com.pruebaTecSintad.mvcdemo.Model.TipoDocment;
+import com.pruebaTecSintad.mvcdemo.Model.TipoDocumento;
 
-public interface TipoDocmentService extends Crud<TipoDocment, Integer>{
-    abstract TipoDocment update(TipoDocment tipoDocment);
+public interface TipoDocmentService extends Crud<TipoDocumento, Integer>{
+    abstract TipoDocumento update(TipoDocumento tipoDocumento);
 }

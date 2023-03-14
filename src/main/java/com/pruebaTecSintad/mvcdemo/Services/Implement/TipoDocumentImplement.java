@@ -1,7 +1,7 @@
 package com.pruebaTecSintad.mvcdemo.Services.Implement;
 
 import com.pruebaTecSintad.mvcdemo.Exception.ModelNotFoundException;
-import com.pruebaTecSintad.mvcdemo.Model.TipoDocment;
+import com.pruebaTecSintad.mvcdemo.Model.TipoDocumento;
 import com.pruebaTecSintad.mvcdemo.Repository.TipoDocmentRepository;
 import com.pruebaTecSintad.mvcdemo.Services.TipoDocmentService;
 import org.springframework.stereotype.Service;
@@ -19,27 +19,27 @@ public class TipoDocumentImplement implements TipoDocmentService {
     }
 
     @Override
-    public TipoDocment save(TipoDocment tipoDocment) {
-
-        return tipoDocment;
+    public TipoDocumento save(TipoDocumento tipoDocumento) {
+        this.tipoDocmentRepository.save(tipoDocumento);
+        return tipoDocumento;
     }
 
     @Override
-    public TipoDocment update(TipoDocment tipoDocment) {
-        Optional<TipoDocment> optionalTipoDocment = tipoDocmentRepository
-                .findById(tipoDocment.getId_tipo_documento());
+    public TipoDocumento update(TipoDocumento tipoDocumento) {
+        Optional<TipoDocumento> optionalTipoDocment = tipoDocmentRepository
+                .findById(tipoDocumento.getId_tipo_documento());
         if(!optionalTipoDocment.isPresent()){
             throw new ModelNotFoundException(
-                    String.format("El registro con el id %s no existe.", tipoDocment.getId_tipo_documento().toString())
+                    String.format("El registro con el id %s no existe.", tipoDocumento.getId_tipo_documento().toString())
             );
         }
-        tipoDocmentRepository.save(tipoDocment);
-        return tipoDocment;
+        tipoDocmentRepository.save(tipoDocumento);
+        return tipoDocumento;
     }
 
     @Override
-    public TipoDocment findById(Integer id) {
-        Optional<TipoDocment> optionalTipoDocumento = tipoDocmentRepository
+    public TipoDocumento findById(Integer id) {
+        Optional<TipoDocumento> optionalTipoDocumento = tipoDocmentRepository
                 .findById(id);
         if(!optionalTipoDocumento.isPresent()){
             throw new ModelNotFoundException(
@@ -50,13 +50,13 @@ public class TipoDocumentImplement implements TipoDocmentService {
     }
 
     @Override
-    public List<TipoDocment> findAll() {
+    public List<TipoDocumento> findAll() {
         return tipoDocmentRepository.findAll();
     }
 
     @Override
     public void delete(Integer id) {
-        Optional<TipoDocment> optionalTipoDocumento = tipoDocmentRepository
+        Optional<TipoDocumento> optionalTipoDocumento = tipoDocmentRepository
                 .findById(id);
         if(!optionalTipoDocumento.isPresent()){
             throw new ModelNotFoundException(

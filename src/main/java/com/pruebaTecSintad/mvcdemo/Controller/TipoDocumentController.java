@@ -1,7 +1,7 @@
 package com.pruebaTecSintad.mvcdemo.Controller;
 
 import com.pruebaTecSintad.mvcdemo.DTO.TipoDocumentDTO;
-import com.pruebaTecSintad.mvcdemo.Model.TipoDocment;
+import com.pruebaTecSintad.mvcdemo.Model.TipoDocumento;
 import com.pruebaTecSintad.mvcdemo.Services.TipoDocmentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -41,7 +41,7 @@ public class TipoDocumentController {
     public ResponseEntity<TipoDocumentDTO> listarPorId(
             @PathVariable(name = "id") Integer id
     ){
-        TipoDocment tipoDocument = tipoDocmentService.findById(id);
+        TipoDocumento tipoDocument = tipoDocmentService.findById(id);
         return new ResponseEntity<>(
                 modelMapper.map(
                         tipoDocument, TipoDocumentDTO.class
@@ -51,10 +51,10 @@ public class TipoDocumentController {
     }
 
     @PostMapping
-    public ResponseEntity<TipoDocment> registrar(
+    public ResponseEntity<TipoDocumento> registrar(
             @RequestBody TipoDocumentDTO tipoDocumentoRequest
     ){
-        TipoDocment tipoDocument = modelMapper.map(tipoDocumentoRequest, TipoDocment.class);
+        TipoDocumento tipoDocument = modelMapper.map(tipoDocumentoRequest, TipoDocumento.class);
         return new ResponseEntity<>(
                 tipoDocmentService.save(tipoDocument)
                 , HttpStatus.CREATED
@@ -62,10 +62,10 @@ public class TipoDocumentController {
     }
 
     @PutMapping
-    public ResponseEntity<TipoDocment> actualizar(
+    public ResponseEntity<TipoDocumento> actualizar(
             @RequestBody TipoDocumentDTO tipoDocumentoRequest
     ){
-        TipoDocment tipoDocment = modelMapper.map(tipoDocumentoRequest, TipoDocment.class);
+        TipoDocumento tipoDocment = modelMapper.map(tipoDocumentoRequest, TipoDocumento.class);
         return new ResponseEntity<>(
                 tipoDocmentService.update(tipoDocment)
                 , HttpStatus.CREATED

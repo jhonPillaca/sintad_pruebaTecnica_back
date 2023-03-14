@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-public class TipoDocment {
+public class TipoDocumento {
     @Id
     @Column(length = 11)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
